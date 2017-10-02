@@ -5,5 +5,15 @@ module.exports = {
   reactHotLoader: true,
   debug: false,
   serverURL: 'http://localhost:4000',
-  clientURL: 'http://localhost:4001'
+  clientURL: 'http://localhost:4001',
+  modifyJestConfig: (baseConfig) => {
+    const jestConfig = Object.assign({}, baseConfig)
+
+    jestConfig.setupTestFrameworkScriptFile = '../src/setupTests.js'
+    jestConfig.setupFiles = ['raf/polyfill', ...jestConfig.setupFiles]
+
+    console.log('jestConfig:', jestConfig)
+
+    return jestConfig
+  }
 }

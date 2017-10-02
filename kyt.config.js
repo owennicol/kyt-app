@@ -12,8 +12,6 @@ module.exports = {
     jestConfig.setupTestFrameworkScriptFile = '../src/setupTests.js'
     jestConfig.setupFiles = ['raf/polyfill', ...jestConfig.setupFiles]
 
-    console.log('jestConfig:', jestConfig)
-
     return jestConfig
   }
 }
